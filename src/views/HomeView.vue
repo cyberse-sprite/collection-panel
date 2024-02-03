@@ -20,13 +20,13 @@ home().then((res) => {
 <template>
     <div class="container">
         <el-space wrap class="space">
-            <el-card v-for="(item, index) in data.home" shadow="hover" class="card"
-                :body-style="{ padding: '0px', background: `url('` + getComicThumb(item.image) + `')`, backgroundSize: '240px 320px', filter: imageBlur ? '' : 'blur(10px)' }"
+            <el-card v-for="(item, index) in data.home.records" shadow="hover" class="card"
+                :body-style="{ padding: '0px', background: `url('` + getComicThumb(item.first) + `')`, backgroundSize: '240px 320px', filter: imageBlur ? '' : 'blur(10px)' }"
                 @click="$router.push('/comics?tag=' + item.id)">
                 <div class="info">
-                    <div class="title">{{ item.value }}</div>
+                    <div class="title">{{ item.title}}</div>
                     <div>
-                        <el-tag round effect="dark">{{ item.count }}</el-tag>
+                        <el-tag round effect="dark">{{ item.num }}</el-tag>
                     </div>
                 </div>
             </el-card>

@@ -5,8 +5,7 @@ import { ElMessageBox, ElMessage } from 'element-plus'
 
 // create an axios instance
 const service = axios.create({
-  //baseURL: "http://192.168.0.105:8080",
-  baseURL: process.env.VUE_APP_BASE_API_D, // url = base url + request url
+  baseURL: process.env.VUE_APP_BASE_API_D, 
   withCredentials: false, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
 })

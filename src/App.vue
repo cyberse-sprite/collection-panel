@@ -21,7 +21,7 @@ var data = reactive({
       <el-button @click="$router.push('/tags')">标签</el-button>
       <el-button @click="$router.push('/comics')">漫画</el-button>
       <el-button @click="$router.push('/upload')">上传漫画</el-button>
-      <el-switch v-model="imageBlur"></el-switch>
+      <el-switch v-model="imageBlur" inline-prompt active-text="清晰" inactive-text="模糊"></el-switch>
     </el-space>
   </el-card>
   <RouterView />

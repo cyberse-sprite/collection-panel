@@ -15,7 +15,7 @@ export default defineConfig({
   },
   define: {
     'process.env': {
-      VUE_APP_BASE_API_D: 'http://192.168.0.105:8080'
+      VUE_APP_BASE_API_D: 'http://localhost:8989'
     }
   },
   server: {

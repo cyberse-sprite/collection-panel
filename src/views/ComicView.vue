@@ -54,17 +54,20 @@ const changeOwn = () => {
                     :style="{ filter: imageBlur ? '' : 'blur(10px)' }">
                 <el-card shadow="never" class="detail">
                     <el-descriptions class="margin-top" :title="data.comic.title" :column="2">
-                        <el-descriptions-item label="创建时间">{{ formatTimeDate(data.comic.createTime)
-                        }}</el-descriptions-item>
-                        <el-descriptions-item label="编辑时间">{{ formatTimeDate(data.comic.updateTime)
-                        }}</el-descriptions-item>
-                        <el-descriptions-item label="发布日期" :span="2">{{ formatDate(data.comic.publishTime)
-                        }}</el-descriptions-item>
+                        <el-descriptions-item label="创建时间">
+                            {{ formatTimeDate(data.comic.createTime) }}
+                        </el-descriptions-item>
+                        <el-descriptions-item label="编辑时间">
+                            {{ formatTimeDate(data.comic.updateTime) }}
+                        </el-descriptions-item>
+                        <el-descriptions-item label="发布日期" :span="2">
+                            {{ formatDate(data.comic.publishTime) }}
+                        </el-descriptions-item>
                         <el-descriptions-item v-for="(taglist, tagtype) in data.des" :label="filterTagType(tagtype)"
                             :span="2">
                             <el-space wrap>
                                 <el-tag v-for="(tag, i) in taglist" @click="$router.push('/comics?tag=' + tag.id)">
-                                    {{ tag.value }}
+                                    {{ tag.title }}
                                 </el-tag>
                             </el-space>
                         </el-descriptions-item>
@@ -72,16 +75,6 @@ const changeOwn = () => {
                 </el-card>
             </div>
             <el-card shadow="never">{{ data.comic.intro ? data.comic.intro : '暂无简介' }}</el-card>
-            <el-card shadow="never">
-                <el-space>
-                    <el-button @click="$router.push('/view/c/' + data.comic.id)">阅读</el-button>
-                    <el-button>编辑</el-button>
-                    <el-button @click="download">下载</el-button>
-                    <el-checkbox-button v-model="data.comic.own" size="large" @click="changeOwn">
-                        {{ data.comic.own ? '已拥有' : '未拥有' }}
-                    </el-checkbox-button>
-                </el-space>
-            </el-card>
         </el-space>
     </div>
 </template>
@@ -89,32 +82,22 @@ const changeOwn = () => {
 .image {
     height: 360px;
     width: 270px;
-    margin: 0;
+    margin: auto;
     padding: 0;
     border: 1px #aaa solid;
     border-radius: 5px;
     object-fit: cover;
 }
 
-.image-box {
-    height: 360px;
-    width: 270px;
-}
-
 .head {
     display: flex;
-    /* margin-top: 30px; */
+    align-content: center;
+    justify-content: center;
 }
 
 .detail {
     flex-grow: 1;
     margin-left: 10px;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 @media(max-width: 600px) {
@@ -123,7 +106,6 @@ const changeOwn = () => {
     }
 
     .detail {
-        flex-grow: 1;
         margin-left: 0px;
         margin-top: 10px;
     }
